@@ -4,226 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Document</title>
 </head>
 <body>
 
+    <div class="apprentisage">
+        <h1 style="text-align: center">Apprentisage en Javascript</h1>
+    </div>
 
-    <p>
-        <a href="#" onclick="javascript:PoM_partie(1,63)">Niveau Z&eacute;r0</a><br />
-        <a href="#" onclick="javascript:PoM_partie(1,100)">Niveau Normal</a><br />
-        <a href="#" onclick="javascript:PoM_partie(0,250)">Niveau Geek</a>
-   </p>
+    <div class="apprentisage" style="">
+
+        <h2 style="text-align: center; margin-top: 50px">Jeux de hasard</h2>
+
+            <p style="display: flex; justify-content: space-around; margin-top: 50px">
+                    <a href="jeuxDeHazart.js" onclick="javascript:PoM_partie(1,63)">Niveau Facile</a>
+                    <a href="jeuxDeHazart.js" onclick="javascript:PoM_partie(1,100)">Niveau Normal</a>
+                    <a href="jeuxDeHazart.js" onclick="javascript:PoM_partie(0,250)">Niveau Geek</a>
+            </p>
+    </div>
+
+
+
 
     <script>
     
-    // VAR: QUI DESIGNE UNE VALEUR
-
-    // FUNCTION: EST UN OBJET UN BOUT DE CODE QU'ON PEUT RECUPERE POUR EVITER DE DEVOIR REECRIR TOUT LE CODE
-
-    // PROMPT: QUI OUVRE UNE BOITE POP UP 
-
-    // IF: EST UNE VALEUR BOOLEENE DONC SI L'ACTION EST SI ELLE EST EN TRUE SINON ELLE EST EN FALSE
-
-    // ELSE : QUI DESIGNE SINON SI LE TAUX DE IF EN FALSE EST ELEVEE 
-
-    // SWICH : SIMPLIFIE LE IF ET LE ELSE QUAND ON A BEAUCOUP DE CODE 
-
-    // WHILE : PERMET DE CREER UNE BOUCLE QUI SUIS UNE PREMIERE TOUR DE BOUCLE SI LES CONDTITION NE SONT PAS RESPECTEE LA BOUCLE S'ARRETE 
-    
-   // FOR : BOUCLE 
+var films = ["Le loup de Wall Street" , "Vice-Versa","BabySiting"];
 
 
+var Film = {
 
+    init: function(titre,annee){
+        this.titre = titre;
+        this.annee = annee;
+    },
 
-
-
-
-
-
-    // var message;
-
-    // année = 2018;
-    // message = "hello"
-
-    // console.log( message + " je suis de " + année );
-
-    // var age = "Indique ton age";
-
-    // age = 29;
-
-    // console.log(" J'ai " + age + " ans ");
-
-    // var nombre = 28.5;
-
-    // console.log( nombre );
-
-
-// var nb = prompt ('Entrez un nombre');
-// if(isNaN(nb)){
-//     alert('vous devez rentrez un nombre');
-// }else{
-//     alert('son carre est de ' + nb * nb);
-// }
-
-// var age = prompt ('Quel âge avez-vous?');
-
-// if(!age){
-//     alert('Vous devez entrez votre âge');
-// }else{
-    
-// }if(age >= 18){
-//     alert('Vous êtes majeur');
-// }else{
-//     alert('Vous êtes mineur')
-// };
-
-// var taille = prompt ('combien messeruez vous ?');
-// var poids = prompt('combien pesez vous');
-
-// costaud = (taille >= 2 && poids >= 90);
-// alert('Vous êtes costaud : ' + costaud);
-
-
-
- 
-// var nom = prompt ("Entre un nom d'animal");
-
-// switch(nom){
-//     case "chat":
-//     alert("Miaou !");
-//     break;
-
-//     case "tigre":
-//     alert("Tigrou");
-//     break;
-
-//     case "chien":
-//     alert('Milou');
-//     break;
-
-//     case 'lapin':
-//     alert("Horaku");
-//     break;
-
-// }    
-
-// var plat = prompt (" Quel est votre plat préféré ?")
-// switch(plat){
-//     case "frite":
-//     alert("Bien Belge");
-//     break;
-
-//     case "hambuger":
-//     alert("Typique Americain");
-//     break;
-
-
-
-//     case "lasagne":
-//     case "pizza":
-//     alert("L'Italien");
-//     break;
-
-//     default:
-//     alert("C'est null!!");
-//     break;
-// }
-
-    // var i = 1;
-    // while(i < 10){
-    //     alert(i)
-    //     i++;
-    // }
-    
-    // var x;
-    // for (x = 10; x < 30; x++){
-    //     console.log (x);
-    // }
-
-    // var saisie;
-    // do 
-    //     saisie = prompt ("Entrez votre nom ou cliquer sur annuler");
-
-    //     while(saisie != null && saisie != '');
-
-
-
-    //     var z;
-    //     for (z=0; z=20; z++)    
-    //     {
-    //                 if(z == 0) {                   
-    //               continue;
-    //               alert("l'inverse de "+ z + " est " + 1/z );
-    //     }
-    // }
-    
-function nb_aleatoire(min,max){
-    var nb = min + (max-min +1 )*Math.random();
-    return Math.floor(nb);
-}
-
-function PoM_manche(min, max)
-{
-var nb = nb_aleatoire(min, max);
-var cpt = 0;    
-var saisie;
-var msg = 'Le nombre à deviner est compris entre ' + min + ' et ' + max + '.';
-
-do
-{
-     saisie = prompt(msg);
-
-     cpt++;
-     
-     if(saisie > nb)
-
-          msg = "C'est moins";
-
-      else 
-
-          msg = "C'est plus";
-}
-
-while(saisie != nb);
-
-return cpt;
-
-}
-
-function PoM_partie(min, max){
-    var cpt = 0;
-    var best_score = 0;
-    var score;
-    var continuer;
-
-do{
-    score = PoM_manche(min, max);
-    if (score){
-        cpt++;
-
-        if(score <best_score || best_score == 0)
-        best_score = score;
-        continuer = confirm ("Bravo, tu as gagner en " + score + "coups.\nVeux-tu rejouer?");
-}
-    else
-        continer = false;
+    decrire: function() {
+        var description = this.titre + "(" + this.annee + " )";
+        return description;
     }
-    while(continuer);
+};
 
-    alert("Tu as joue " + cpt + " mache(s).\nTon meilleur score est de " +best_score + "coups.");
-    return best_score;
- }
+var film1 = Object.create(Film);
+film1.init("Le loup de Wall Street", 2013);
 
-//-->
+var film2 = Object.create(Film);
+film2.init("Vice-Versa", 2008);
+
+var film3 = Object.create(Film);
+film3.init("BabySiting", 2013);
+
+
+var films = [];
+films.push(film1);
+films.push(film2);
+films.push(film3);
+
+films.forEach(function(film) {
+    console.log(film.decrire());
+});
 
 
 
 
 
 
-    
+
+
+var guerrier = ["Leon", "Dragnir", "Dark"];
+
+var Carasteristique = {
+
+    init: function(nom,level){
+        this.nom = nom;
+        this.level = level ;
+    },
+
+    decrire: function(){
+        var description = this.nom + "("+ this.level +")";
+        return description;
+        
+    }
+};
+
+var guerrierUn = Object.create(Carasteristique);
+guerrierUn.init("Leon", 80);
+
+var ultime = [];
+ultime.push(guerrierUn);
+
+ultime.forEach(function(guerrier) {
+    console.log(guerrier.decrire());
+});
+
+
+
+
+
+
+
+
+
+
  </script>
+
+
+
+
+    <script src="jeuxDeHazart.js"></script>
+    <script src="jeuxDeRole.js"></script>
+    <script src="partieDeux.js"></script>
+    <script src="partieUne.js"></script>  
+    
     
 </body>
 </html>
