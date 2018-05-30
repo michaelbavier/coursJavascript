@@ -1,115 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title> Cours Javascript </title>
+    <script defer src="jeuxDeHazard.js"></script>
+    <script defer src="jeuxDeRole.js"></script>
+    <script defer src="partieDeux.js"></script>
+    <script defer src="partieUne.js"></script>
 </head>
+
+
+
 <body>
 
+    <nav class="nav"></nav>
 
-
-
-<nav class="nav"></nav>
-
-<div class="apprentisage">
+    <div class="apprentisage">
         <h1 style="text-align: center">Apprentisage en Javascript</h1>
     </div>
 
-    <div class="apprentisage">
+    <div class="jeux">
         <h2>Jeux de hasard</h2>
-            <p>
-                    <a href="jeuxDeHazart.js" onclick="javascript:PoM_partie(1,63)">Niveau Facile</a>
-                    <a href="jeuxDeHazart.js" onclick="javascript:PoM_partie(1,100)">Niveau Normal</a>
-                    <a href="jeuxDeHazart.js" onclick="javascript:PoM_partie(0,250)">Niveau Geek</a>
-            </p>
+        <p>
+            <button onclick="javascript:PoM_partie(1,63)">Niveau Facile</button>
+            <button onclick="javascript:PoM_partie(1,100)">Niveau Normal</button>
+            <button onclick="javascript:PoM_partie(0,250)">Niveau Geek</button>
+        </p>
+    </div>
+
+
+    <div class="changeContenu">
+        <h3 class="lang"> Quelque language </h1>
+            <div id="quelqueLanguage">
+                <ul id="contenu">
+                    <li id="javascript">Javscript</li>
+                    <li id="html">Html</li>
+                    <li id=" css">Css</li>
+                    <li id="java">Java</li>
+                </ul>
+            </div>
     </div>
 
 
 
+    <div class="journeaux">
+
+        <h3>Quelques journeaux en ligne</h3>
+
+        <div id="nouveauContenu">
+
+            
+
+        </div>
+
+    </div>
+
+<ul>
+    <li><a href="http://lemonde.fr"> </a></li>
+    <li><a href="http://lefigaro.fr"> </a></li>
+    <li><a href="http://liberation.fr"> </a></li>
+</ul>
 
     <script>
-    
-var films = ["Le loup de Wall Street" , "Vice-Versa","BabySiting"];
 
 
-var Film = {
+        Array.prototype.toString = function () { return JSON.stringify(this); }
 
-    init: function(titre,annee){
-        this.titre = titre;
-        this.annee = annee;
-    },
+var journeaux , text , i, taille;
+            journeaux = [
+                        "http://lemonde.fr",
+                        "http://lefigaro.fr",
+                        "http://liberation.fr"];
 
-    decrire: function() {
-        var description = this.titre + "(" + this.annee + " )";
-        return description;
-    }
-};
+            monNombre = 3
 
-var film1 = Object.create(Film);
-film1.init("Le loup de Wall Street", 2013);
+            text = "<ul>"; 
 
-var film2 = Object.create(Film);
-film2.init("Vice-Versa", 2008);
+            taille = journeaux.length;
 
-var film3 = Object.create(Film);
-film3.init("BabySiting", 2013);
+            for (i = 0; i <taille; i++){
+            text += "<li>"+ "<a href= \""+journeaux[i]+"\" >" +  journeaux[i] + "</a>" + "</li>";
+            }
+            text += "</ul>";
+            document.getElementById("nouveauContenu").innerHTML = text;
+   
+        // var ruby = document.createElement("li");
+        // ruby.id = "rubyl";
+        // ruby.textContent = "Ruby";
+        // document.getElementById("contenu").replaceChild(ruby, document.getElementById("html"));
+        // // <!-- 
+        // //         document.getElementById("contenu").insertBefore(ruby, 
 
+        // //         document.getElementById("html")); -->
 
-var films = [];
-films.push(film1);
-films.push(film2);
-films.push(film3);
+        // document.querySelector("h3").textContent += "de programation ";
 
-films.forEach(function(film) {
-    console.log(film.decrire());
-});
+        //  var python = document.createElement ("li");
+        //  python.id = "pythonL";
+        //  python.textContent= "Python";
+        //  document.getElementById("contenu").appendChild(python);
 
+        // document.getElementById("contenu").innerHTML += '<li id="php"> Php </li>';
+        // document.getElementById("contenu").innerHTML += '<li id="ruby"> Ruby </li>';
 
+        // docuemnt.getElementById("contenu").innerHTML = '';
 
+        // var films = ["Le loup de Wall Street" , "Vice-Versa","BabySiting"];
 
+        // var Film = {
 
+        //     init: function(titre,annee){
+        //         this.titre = titre;
+        //         this.annee = annee;
+        //     },
 
+        //     decrire: function() {
+        //         var description = this.titre + "(" + this.annee + " )";
+        //         return description;
+        //     }
+        // };
 
+        // var film1 = Object.create(Film);
+        // film1.init("Le loup de Wall Street", 2013);
 
-var guerrier = ["Leon", "Dragnir", "Dark"];
+        // var film2 = Object.create(Film);
+        // film2.init("Vice-Versa", 2008);
 
-var Carasteristique = {
-
-    init: function(nom,level){
-        this.nom = nom;
-        this.level = level ;
-    },
-
-    decrire: function(){
-        var description = this.nom + "("+ this.level +")";
-        return description;
-        
-    }
-};
-
-var guerrierUn = Object.create(Carasteristique);
-guerrierUn.init("Leon", 80);
-
-var ultime = [];
-ultime.push(guerrierUn);
-
-ultime.forEach(function(guerrier) {
-    console.log(guerrier.decrire());
-});
-
- </script>
+        // var film3 = Object.create(Film);
+        // film3.init("BabySiting", 2013);
 
 
+        // var films = [];
+        // films.push(film1);
+        // films.push(film2);
+        // films.push(film3);
+
+        // films.forEach(function(film) {
+        //     console.log(film.decrire());
+        // });
 
 
-    <script src="jeuxDeHazart.js"></script>
-    <script src="jeuxDeRole.js"></script>
-    <script src="partieDeux.js"></script>
-    <script src="partieUne.js"></script>  
-    
-    
+        // var guerrier = ["Leon", "Dragnir", "Dark"];
+
+        // var Carasteristique = {
+
+        //     init: function(nom,level){
+        //         this.nom = nom;
+        //         this.level = level ;
+        //     },
+
+        //     decrire: function(){
+        //         var description = this.nom + "("+ this.level +")";
+        //         return description;
+
+        //     }
+        // };
+
+        // var guerrierUn = Object.create(Carasteristique);
+        // guerrierUn.init("Leon", 80);
+
+        // var ultime = [];
+        // ultime.push(guerrierUn);
+
+        // ultime.forEach(function(guerrier) {
+        //     console.log(guerrier.decrire());
+        // });
+
+        // console.log(document.body.childNodes[2]);
+
+        // for(var i = 0; i < document.childNodes.length; i++ ){
+        //     console.log(document.childNodes[i]);
+        // }
+    </script>
+
 </body>
+
 </html>
