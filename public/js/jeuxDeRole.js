@@ -1,17 +1,19 @@
+//JEUX DE ROLE
+
 var Personnage = {
 
-    initPerso: function (nom, sante, force){
-    this.nom = nom ;
-    this.sante = sante;
-    this.force = force;
-},
+    initPerso: function (nom, sante, force) {
+        this.nom = nom;
+        this.sante = sante;
+        this.force = force;
+    },
 
-attaquer: function (cible){
-    if(this.sante > 0){
+    attaquer: function (cible) {
+        if (this.sante > 0) {
             var degats = this.force;
             console.log(this.nom + " attaque " + cible.nom + " et lui causse " + degats + " point de degats ");
             cible.sante = cible.sante - degats;
-            if(cible.sante > 0) {
+            if (cible.sante > 0) {
                 console.log(cible.nom + " a encore " + cible.sante + " points de vie");
             } else {
                 cible.sante = 0;
@@ -24,24 +26,24 @@ attaquer: function (cible){
     }
 };
 
-    var Joueur = Object.create(Personnage);
+var Joueur = Object.create(Personnage);
 
-    Joueur.initJoueur = function(nom, force , sante){
-        this.initPerso(nom, force, sante);
-        this.xp = 0;
-    };
-
-    Joueur.decrire = function(){
-        var description = this.nom + " a " + this.sante + " de sante et " + this.force +
-        " de force et " + this.xp + " d'experience";
-        return description;
+Joueur.initJoueur = function (nom, force, sante) {
+    this.initPerso(nom, force, sante);
+    this.xp = 0;
 };
 
-Joueur.combatre = function(adversaire){
+Joueur.decrire = function () {
+    var description = this.nom + " a " + this.sante + " de sante et " + this.force +
+        " de force et " + this.xp + " d'experience";
+    return description;
+};
+
+Joueur.combatre = function (adversaire) {
     this.attaquer(adversaire);
-    if(adversaire.sante === 0){
-        console.log (this.nom + " a tué " + adversaire.nom + " et gagne " +
-        adversaire.valeur + " points d'experience");
+    if (adversaire.sante === 0) {
+        console.log(this.nom + " a tué " + adversaire.nom + " et gagne " +
+            adversaire.valeur + " points d'experience");
         this.xp += adversaire.value;
     }
 };
@@ -49,19 +51,19 @@ Joueur.combatre = function(adversaire){
 
 var Adversaire = Object.create(Personnage);
 
-Adversaire.initAdversaire = function (nom , sante ,force, race, valeur){
-this.initPerso(nom, sante, force);
-this.race = race;
-this.valeur = valeur;
+Adversaire.initAdversaire = function (nom, sante, force, race, valeur) {
+    this.initPerso(nom, sante, force);
+    this.race = race;
+    this.valeur = valeur;
 };
 
 
 var joueur1 = Object.create(Joueur);
-joueur1.initJoueur("Lucie" ,125 , 25);
+joueur1.initJoueur("Lucie", 125, 25);
 
 
 var joueur2 = Object.create(Joueur);
-joueur2.initJoueur("Natsu", 135, 55 );
+joueur2.initJoueur("Natsu", 135, 55);
 
 console.log("Bienvenue dans ce jeu d'aventure ! Voici nos courageux héros :");
 

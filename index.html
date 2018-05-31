@@ -5,178 +5,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./public/css/style.css">
     <title> Cours Javascript </title>
-    <script defer src="jeuxDeHazard.js"></script>
-    <script defer src="jeuxDeRole.js"></script>
-    <script defer src="partieDeux.js"></script>
-    <script defer src="partieUne.js"></script>
 </head>
-
-
 
 <body>
 
-    <nav class="nav"></nav>
+    <nav class="nav">
+        <a href="cours.html">
+            <p>Page des test </p>
+        </a>
+    </nav>
 
     <div class="apprentisage">
         <h1 style="text-align: center">Apprentisage en Javascript</h1>
     </div>
 
-    <div class="jeux">
-        <h2>Jeux de hasard</h2>
-        <p>
-            <button onclick="javascript:PoM_partie(1,63)">Niveau Facile</button>
-            <button onclick="javascript:PoM_partie(1,100)">Niveau Normal</button>
-            <button onclick="javascript:PoM_partie(0,250)">Niveau Geek</button>
-        </p>
-    </div>
+    <button id="buton"> Click </button>
 
 
-    <div class="changeContenu">
-        <h3 class="lang"> Quelque language </h1>
-            <div id="quelqueLanguage">
-                <ul id="contenu">
-                    <li id="javascript">Javscript</li>
-                    <li id="html">Html</li>
-                    <li id=" css">Css</li>
-                    <li id="java">Java</li>
-                </ul>
-            </div>
-    </div>
+    <form action="">
+
+        <p>Formulaire</p>
+
+        <label for="nom">Nom</label>
+        <input type="text">
+        <label for="mdp">Mots de passe</label>
+        <input type="text">
+        <label for="mail">Mail</label>
+        <input type="text">
+        <section>
+            <input class="formulaire" type="submit" value="Envoyer">
+            <input class="formulaire" type="reset" value="Annuler">
+        </section>
 
 
 
-    <div class="journeaux">
-
-        <h3>Quelques journeaux en ligne</h3>
-
-        <div id="nouveauContenu">
-
-            
-
-        </div>
-
-    </div>
-
-<ul>
-    <li><a href="http://lemonde.fr"> </a></li>
-    <li><a href="http://lefigaro.fr"> </a></li>
-    <li><a href="http://liberation.fr"> </a></li>
-</ul>
+    </form>
 
     <script>
+        Array.prototype.toString = function () {
+            return JSON.stringify(this);
+        }
+
+        var journeaux, text, i, taille;
+        journeaux = [
+            "http://lemonde.fr",
+            "http://lefigaro.fr",
+            "http://liberation.fr"
+        ];
+
+        monNombre = 3
+
+        text = "<ul>";
+
+        taille = journeaux.length;
+
+        for (i = 0; i < taille; i++) {
+            text += "<li>" + "<a href= \"" + journeaux[i] + "\" >" + journeaux[i] + "</a>" + "</li>";
+        }
+        text += "</ul>";
+        document.getElementById("nouveauContenu").innerHTML = text;
+
+        function clickButton() {
+            console.log("Click")
+        }
+
+        var button = document.getElementById("buton").addEventListener("click", function (e) {
+            console.log("L'évenement " + e.type + " est cible " + e.target.textContent);
+        });
 
 
-        Array.prototype.toString = function () { return JSON.stringify(this); }
-
-var journeaux , text , i, taille;
-            journeaux = [
-                        "http://lemonde.fr",
-                        "http://lefigaro.fr",
-                        "http://liberation.fr"];
-
-            monNombre = 3
-
-            text = "<ul>"; 
-
-            taille = journeaux.length;
-
-            for (i = 0; i <taille; i++){
-            text += "<li>"+ "<a href= \""+journeaux[i]+"\" >" +  journeaux[i] + "</a>" + "</li>";
-            }
-            text += "</ul>";
-            document.getElementById("nouveauContenu").innerHTML = text;
-   
-        // var ruby = document.createElement("li");
-        // ruby.id = "rubyl";
-        // ruby.textContent = "Ruby";
-        // document.getElementById("contenu").replaceChild(ruby, document.getElementById("html"));
-        // // <!-- 
-        // //         document.getElementById("contenu").insertBefore(ruby, 
-
-        // //         document.getElementById("html")); -->
-
-        // document.querySelector("h3").textContent += "de programation ";
-
-        //  var python = document.createElement ("li");
-        //  python.id = "pythonL";
-        //  python.textContent= "Python";
-        //  document.getElementById("contenu").appendChild(python);
-
-        // document.getElementById("contenu").innerHTML += '<li id="php"> Php </li>';
-        // document.getElementById("contenu").innerHTML += '<li id="ruby"> Ruby </li>';
-
-        // docuemnt.getElementById("contenu").innerHTML = '';
-
-        // var films = ["Le loup de Wall Street" , "Vice-Versa","BabySiting"];
-
-        // var Film = {
-
-        //     init: function(titre,annee){
-        //         this.titre = titre;
-        //         this.annee = annee;
-        //     },
-
-        //     decrire: function() {
-        //         var description = this.titre + "(" + this.annee + " )";
-        //         return description;
-        //     }
-        // };
-
-        // var film1 = Object.create(Film);
-        // film1.init("Le loup de Wall Street", 2013);
-
-        // var film2 = Object.create(Film);
-        // film2.init("Vice-Versa", 2008);
-
-        // var film3 = Object.create(Film);
-        // film3.init("BabySiting", 2013);
+        document.addEventListener("keypress", function (e) {
+            console.log("Vous appuiez sur " + String.fromCharCode(e.charCode));
+        });
 
 
-        // var films = [];
-        // films.push(film1);
-        // films.push(film2);
-        // films.push(film3);
+        function clavier(e) {
+            console.log("Info clavier " + e.type + " touche " + e.keyCode);
+        }
 
-        // films.forEach(function(film) {
-        //     console.log(film.decrire());
+        document.addEventListener("keydown", clavier);
+        document.addEventListener("keyup", clavier);
+
+        // window.addEventListener("beforeunload", function(e){
+        // var message = "Veux tu quiter?";
+        // e.returnValue = message;
+        // return message;
         // });
 
 
-        // var guerrier = ["Leon", "Dragnir", "Dark"];
+        window.addEventListener("load", function () {
+            console.log("Page chargée");
+        });
 
-        // var Carasteristique = {
-
-        //     init: function(nom,level){
-        //         this.nom = nom;
-        //         this.level = level ;
-        //     },
-
-        //     decrire: function(){
-        //         var description = this.nom + "("+ this.level +")";
-        //         return description;
-
-        //     }
-        // };
-
-        // var guerrierUn = Object.create(Carasteristique);
-        // guerrierUn.init("Leon", 80);
-
-        // var ultime = [];
-        // ultime.push(guerrierUn);
-
-        // ultime.forEach(function(guerrier) {
-        //     console.log(guerrier.decrire());
+        // document.getElementById("site").addEventListener("click" , function(e){
+        //     console.log("Je vous ai eu :D ");
+        //     e.preventDefault();
         // });
-
-        // console.log(document.body.childNodes[2]);
-
-        // for(var i = 0; i < document.childNodes.length; i++ ){
-        //     console.log(document.childNodes[i]);
-        // }
     </script>
-
 </body>
 
 </html>
